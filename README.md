@@ -34,7 +34,7 @@ $ python main.py --train_path path/to/train_data --valid_path path/to/valid_data
 Description of argument
 
 ```
---seed            default: 42             seed values
+--seed            default: 42             seed value
 --batch_size      default: 32             batch size 
 --epochs          default: 10             number of epochs
 --projection_dim  default: 256            output feature size
@@ -51,4 +51,13 @@ Launch jupyter notebook or jupyter lab and open notebooks/traing-pl.ipynb, then 
 Model has pre-trained ResNet18 body for encoding and two layer dense nn for projecting h to z described in paper.  
 Pre-traind model has trained with danbooru2018 dataset and is shared in [here](https://github.com/RF5/danbooru-pretrained/)
 
+## References
+SimCLR - [arxiv](https://arxiv.org/abs/2002.05709)
 
+The Illustrated SimCLR Framework - [article](https://amitness.com/2020/03/illustrated-simclr/)
+
+Understanding SimCLR - [Medium](https://medium.com/analytics-vidhya/understanding-simclr-a-simple-framework-for-contrastive-learning-of-visual-representations-d544a9003f3c)
+
+Other SimCLR implementation
+- Spijkervet - [github](https://github.com/Spijkervet/SimCLR)
+- sthalles - [github](https://github.com/sthalles/SimCLR)
