@@ -1,9 +1,8 @@
 # SimCLR4Paint
-SimCLR4Paint is experimental project that run training with illustration data.
+SimCLR4Paint is experimental project that run training with illustration data.  
+Now training is not yet ended, so my GPU is still working hard.
 
-My GPU is still working hard.
-
-Training data is not yet shared now, but I'll share if training process is complete without any problems.  
+Training data is not yet shared now, but I'll share if training process is completed without any problems.  
 Most of training data comes from danbooru dataset, so you can use danbooru2019 as training data.
 
 ## Dependency
