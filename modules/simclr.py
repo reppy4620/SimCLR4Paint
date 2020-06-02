@@ -22,7 +22,7 @@ class SimCLR(nn.Module):
         model = nn.Sequential(
             layers[0],
             nn.AdaptiveAvgPool2d(1),  # equal to Global Average Pooling
-            Flatten(),  # like Flatten module of Keras
+            Flatten(),  # Flatten module like Keras
             nn.Linear(512, projection_dim, bias=False)
         )
         self.encoder = model
@@ -33,8 +33,11 @@ class SimCLR(nn.Module):
             nn.Linear(projection_dim, projection_dim, bias=False),
         )
 
+    def encode(self, x):
+        return self.encoder(x)
+
     def forward(self, x):
         h = self.encoder(x)
         z = self.projector(h)
-        z = F.normalize(z, dim=1)      
+        z = F.normalize(z, dim=1)
         return h, z

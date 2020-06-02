@@ -3,21 +3,21 @@ SimCLR4Paint is experimental project that run training with illustration data.
 Now training is not yet ended, so my GPU is still working hard.
 
 Training data is not yet shared now, but I'll share if training process is completed without any problems.  
-Most of training data comes from danbooru dataset, so you can use danbooru2019 as training data.
+As most of training data comes from danbooru dataset, you can use it as training data.
 
 ## Dependency
 This project may depend on following packages.
 
 - pytorch
+- torchvision
 - pytorch-lightning
 - tqdm
-- jupyterlab
 - Pillow
 
 If you met errors because of the packages, please install missing packages.
 
 ## Usage
-There are two way to run training process.
+There are two ways to run training script.
 
 - main.py
 - training-pl.ipynb
@@ -25,7 +25,7 @@ There are two way to run training process.
 Both script used pytorch-lightning because of its usefulness and reproducibility.
 
 ### main.py
-execute following command
+Execute following command
 
 ```
 $ python main.py --train_path path/to/train_data --valid_path path/to/valid_data 
@@ -52,9 +52,9 @@ Model has pre-trained ResNet18 body for encoding and two layer dense nn for proj
 Pre-traind model has trained with danbooru2018 dataset and is shared in [here](https://github.com/RF5/danbooru-pretrained/)
 
 ## References
-SimCLR - [arxiv](https://arxiv.org/abs/2002.05709)
+Original SimCLR paper - [arxiv](https://arxiv.org/abs/2002.05709)
 
-The Illustrated SimCLR Framework - [article](https://amitness.com/2020/03/illustrated-simclr/)
+The Illustrated SimCLR - [article](https://amitness.com/2020/03/illustrated-simclr/)
 
 Understanding SimCLR - [Medium](https://medium.com/analytics-vidhya/understanding-simclr-a-simple-framework-for-contrastive-learning-of-visual-representations-d544a9003f3c)
 

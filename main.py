@@ -59,12 +59,12 @@ class SimCLRModel(pl.LightningModule):
         return optim.AdamW(self.parameters(), lr=1e-3)
     
     def train_dataloader(self):
-        dataset = ImageDataset(
+        train_dataset = ImageDataset(
             self.hparams.train_path,
             transform=TransformsSimCLR(self.hparams.img_size)
         )
         train_loader = torch.utils.data.DataLoader(
-            dataset,
+            train_dataset,
             batch_size=self.hparams.batch_size,
             drop_last=True,
             shuffle=True
@@ -72,17 +72,17 @@ class SimCLRModel(pl.LightningModule):
         return train_loader
     
     def val_dataloader(self):
-        dataset = ImageDataset(
+        valid_dataset = ImageDataset(
             self.hparams.valid_path,
             transform=TransformsSimCLR(self.hparams.img_size)
         )
-        train_loader = torch.utils.data.DataLoader(
-            dataset,
+        valid_loader = torch.utils.data.DataLoader(
+            valid_dataset,
             batch_size=self.hparams.batch_size,
             drop_last=True,
             shuffle=False
         )
-        return train_loader
+        return valid_loader
 
 
 if __name__ == '__main__':

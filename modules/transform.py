@@ -1,21 +1,28 @@
-import torchvision
+import torchvision.transforms as T
 
 
 class TransformsSimCLR:
 
     def __init__(self, size):
-        s = 1
-        color_jitter = torchvision.transforms.ColorJitter(
-            0.8 * s, 0.8 * s, 0.8 * s, 0.2 * s
+        # ColorJitter always transforms images by using range of arguments.
+        # so with the use of RandomApply module, make ColorJitter transform 0.8 probability
+        color_jitter = T.ColorJitter(
+            brightness=0.8,
+            contrast=0.8,
+            saturation=0.8,
+            hue=0.2
         )
-        self.train_transform = torchvision.transforms.Compose(
+        self.train_transform = T.Compose(
             [
-                torchvision.transforms.RandomResizedCrop(size=size),
-                torchvision.transforms.RandomHorizontalFlip(),
-                torchvision.transforms.RandomApply([color_jitter], p=0.8),
-                torchvision.transforms.RandomGrayscale(p=0.2),
-                torchvision.transforms.ToTensor(),
-                torchvision.transforms.Normalize(mean=[0.7137, 0.6628, 0.6519], std=[0.2970, 0.3017, 0.2979])
+                T.RandomResizedCrop(size=size),
+                T.RandomHorizontalFlip(p=0.5),  # default value
+                T.RandomApply([color_jitter], p=0.8),
+                T.RandomGrayscale(p=0.2),
+                T.ToTensor(),
+                # normalizing stats are employ from https://github.com/RF5/danbooru-pretrained
+                # because of transfer learning.
+                T.Normalize(mean=[0.7137, 0.6628, 0.6519],
+                            std=[0.2970, 0.3017, 0.2979])
             ]
         )
 
