@@ -88,11 +88,11 @@ class SimCLRModel(pl.LightningModule):
 if __name__ == '__main__':
     parser = ArgumentParser()
     parser.add_argument('--seed', type=int, default=42)
-    parser.add_argument('--batch_size', type=int, default=32)
     parser.add_argument('--epochs', type=int, default=10)
+    parser.add_argument('--batch_size', type=int, default=32)
+    parser.add_argument('--temperature', type=float, default=0.5)
     parser.add_argument('--projection_dim', type=int, default=256)
     parser.add_argument('--img_size', type=int, default=512)
-    parser.add_argument('--temperature', type=float, default=0.5)
     parser.add_argument('--train_path', type=str, default='./data/train')
     parser.add_argument('--valid_path', type=str, default='./data/valid')
 
