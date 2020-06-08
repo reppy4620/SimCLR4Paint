@@ -19,7 +19,7 @@ class TransformsSimCLR:
                 T.RandomApply([color_jitter], p=0.8),
                 T.RandomGrayscale(p=0.2),
                 T.ToTensor(),
-                # normalizing stats are employ from https://github.com/RF5/danbooru-pretrained
+                # normalizing stats are employed from https://github.com/RF5/danbooru-pretrained
                 # because of transfer learning.
                 T.Normalize(mean=[0.7137, 0.6628, 0.6519],
                             std=[0.2970, 0.3017, 0.2979])
