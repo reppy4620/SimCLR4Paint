@@ -1,8 +1,13 @@
 # SimCLR4Paint
-SimCLR4Paint is experimental project that run training with illustration data.  
-Now training is not yet ended, so my GPU is still working hard.
+SimCLR4Paint is experimental project that run training with illustration data.
 
-Training data is not yet shared now, but I'll share if training process is completed without any problems.  
+Training is ended without any errors, but model couldn't acquire appropriate representations.  
+So, this project has failed.  
+Maybe, contrastive learning doesn't perform well with small batch size, so batch size 8 was not enough.  
+If you wanna get good representation you expect, you have to make batch size more bigger, use gradient accumlation if your gpu is not enough for training and use small image size.  
+These techniques may help your model can get representation you want.
+
+Training data is not yet shared now.   
 As most of training data comes from danbooru dataset, you can use it as training data.
 
 ## Dependency
