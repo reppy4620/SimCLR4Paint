@@ -16,7 +16,7 @@ class SimCLR(nn.Module):
         model = torch.hub.load('RF5/danbooru-pretrained', 'resnet18')
         # model has 2 nn.Sequential()
         # first part is resnet body
-        # second part is added fc module by fastai
+        # second part is fc module added by fastai
         # so i need only first part, resnet body.
         layers = [l for l in model.children()]
         model = nn.Sequential(
